@@ -1,0 +1,123 @@
+# ================================================
+# robots.txt — A Future Digital Marketing Company
+# Website : https://masterugarsenseo.github.io/mywebsite/
+# Host    : GitHub Pages
+# Updated : March 2026
+# ================================================
+
+# -----------------------------------------------
+# Google — Full access + fast indexing
+# -----------------------------------------------
+User-agent: Googlebot
+Allow: /mywebsite/
+Allow: /mywebsite/index.html
+Crawl-delay: 2
+
+User-agent: Googlebot-Image
+Allow: /mywebsite/
+Crawl-delay: 5
+
+User-agent: Googlebot-Mobile
+Allow: /mywebsite/
+
+# -----------------------------------------------
+# Bing / Microsoft
+# -----------------------------------------------
+User-agent: Bingbot
+Allow: /mywebsite/
+Crawl-delay: 5
+
+User-agent: msnbot
+Allow: /mywebsite/
+
+# -----------------------------------------------
+# Other major search engines
+# -----------------------------------------------
+User-agent: DuckDuckBot
+Allow: /mywebsite/
+Crawl-delay: 5
+
+User-agent: Slurp
+Allow: /mywebsite/
+Crawl-delay: 10
+
+User-agent: YandexBot
+Allow: /mywebsite/
+Crawl-delay: 10
+
+User-agent: Baiduspider
+Allow: /mywebsite/
+Crawl-delay: 10
+
+# -----------------------------------------------
+# Social Media Crawlers (for link previews)
+# -----------------------------------------------
+User-agent: facebookexternalhit
+Allow: /mywebsite/
+
+User-agent: Twitterbot
+Allow: /mywebsite/
+
+User-agent: LinkedInBot
+Allow: /mywebsite/
+
+User-agent: WhatsApp
+Allow: /mywebsite/
+
+# -----------------------------------------------
+# SEO Tools
+# -----------------------------------------------
+User-agent: AhrefsBot
+Allow: /mywebsite/
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Allow: /mywebsite/
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# -----------------------------------------------
+# Block bad / spam bots
+# -----------------------------------------------
+User-agent: SiteExplorer
+Disallow: /
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+# -----------------------------------------------
+# Default rule for all other bots
+# -----------------------------------------------
+User-agent: *
+Allow: /mywebsite/
+Disallow: /mywebsite/assets/private/
+Disallow: /mywebsite/admin/
+Disallow: /mywebsite/config/
+Disallow: /mywebsite/.git/
+Disallow: /mywebsite/*.log
+Disallow: /mywebsite/*.env
+Crawl-delay: 10
+
+# -----------------------------------------------
+# Sitemap
+# -----------------------------------------------
+Sitemap: https://masterugarsenseo.github.io/mywebsite/sitemap.xml
+
+# -----------------------------------------------
+# Host (canonical domain hint)
+# -----------------------------------------------
+Host: masterugarsenseo.github.io
