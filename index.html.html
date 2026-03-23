@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Future Digital Marketing Company | Hisar, Haryana</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050505;
+    --white: #f5f0e8;
+    --gold: #e8a617;
+    --gold-light: #f5c842;
+    --orange: #ff5c1a;
+    --muted: #888070;
+    --card-bg: #0f0e0c;
+    --border: rgba(232,166,23,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 40px; height: 40px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.4s ease, width 0.3s, height 0.3s;
+    mix-blend-mode: difference;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 5%;
+    background: rgba(5,5,5,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--white); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+  }
+  nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 8px 22px;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(232,166,23,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 10% 80%, rgba(255,92,26,0.05) 0%, transparent 60%);
+  }
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(232,166,23,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(232,166,23,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 10rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s forwards;
+  }
+  .hero-headline .accent { color: var(--gold); }
+  .hero-headline .stroke {
+    -webkit-text-stroke: 1.5px var(--white);
+    color: transparent;
+  }
+  .hero-sub {
+    max-width: 520px;
+    margin-top: 36px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 18px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s forwards;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 14px 36px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(232,166,23,0.4);
+    color: var(--gold);
+    padding: 14px 36px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: rgba(232,166,23,0.07); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 56px;
+    margin-top: 80px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .hero-badge {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    height: 160px;
+    opacity: 0;
+    animation: fadeIn 1s 1s forwards, spin 20s linear infinite;
+  }
+  .hero-badge svg { width: 100%; height: 100%; }
+
+  /* MARQUEE */
+  .marquee-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+    overflow: hidden;
+    padding: 14px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .marquee-item .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+  /* SECTION COMMON */
+  section { padding: 100px 5%; }
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.95;
+    margin-bottom: 16px;
+  }
+  .section-title .gold { color: var(--gold); }
+
+  /* SERVICES */
+  #services { background: var(--card-bg); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .services-desc { max-width: 400px; color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--black);
+    padding: 44px 36px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover { border-color: var(--border); background: #0c0b09; transform: translateY(-4px); }
+  .service-card:hover::after { width: 100%; }
+  .service-icon {
+    width: 54px; height: 54px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 1.4rem;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .service-card:hover .service-icon { background: rgba(232,166,23,0.1); border-color: rgba(232,166,23,0.4); }
+  .service-num {
+    position: absolute;
+    top: 28px; right: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(232,166,23,0.05);
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-num { color: rgba(232,166,23,0.1); }
+  .service-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  .service-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.75; }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 24px;
+    opacity: 0;
+    transition: opacity 0.3s, gap 0.3s;
+  }
+  .service-card:hover .service-link { opacity: 1; gap: 14px; }
+
+  /* WHY US */
+  #why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-visual {
+    position: relative;
+    height: 500px;
+  }
+  .why-box {
+    position: absolute;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .why-box-main {
+    top: 0; left: 0; right: 0; bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(135deg, #0f0e0c 60%, rgba(232,166,23,0.06));
+    overflow: hidden;
+  }
+  .why-box-main::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border: 1px solid rgba(232,166,23,0.12);
+    border-radius: 50%;
+  }
+  .rating-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--gold);
+    position: absolute;
+    top: 28px; left: 28px;
+  }
+  .rating-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .stars { color: var(--gold); font-size: 1.3rem; letter-spacing: 4px; }
+  .review-count { color: var(--muted); font-size: 0.82rem; margin-top: 6px; }
+  .why-box-sm1 {
+    bottom: 0; left: 0;
+    width: 46%;
+    padding: 22px;
+  }
+  .why-box-sm2 {
+    bottom: 0; right: 0;
+    width: 46%;
+    padding: 22px;
+  }
+  .mini-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .mini-stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+  .why-content { padding: 20px 0; }
+  .why-list { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+  .why-item {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+  .why-item:hover { border-color: rgba(232,166,23,0.4); }
+  .why-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .why-item-title { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; }
+  .why-item-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+
+  /* PROCESS */
+  #process { background: var(--card-bg); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    border: 1px solid var(--border);
+  }
+  .process-step {
+    padding: 44px 32px;
+    border-right: 1px solid var(--border);
+    position: relative;
+    transition: background 0.3s;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-step:hover { background: rgba(232,166,23,0.03); }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(232,166,23,0.08);
+    transition: color 0.3s;
+  }
+  .process-step:hover .step-num { color: rgba(232,166,23,0.15); }
+  .step-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; margin-top: -10px; }
+  .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+  .step-arrow {
+    position: absolute;
+    top: 44px; right: -14px;
+    width: 28px; height: 28px;
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--gold);
+    z-index: 1;
+  }
+  .process-step:last-child .step-arrow { display: none; }
+
+  /* REVIEWS */
+  #reviews { overflow: hidden; }
+  .reviews-header { margin-bottom: 60px; }
+  .reviews-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .review-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 36px;
+    border-radius: 4px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .review-card:hover { border-color: rgba(232,166,23,0.35); transform: translateY(-4px); }
+  .review-stars { color: var(--gold); font-size: 1rem; letter-spacing: 3px; margin-bottom: 20px; }
+  .review-text { font-size: 0.9rem; line-height: 1.8; color: #c0b89a; font-style: italic; margin-bottom: 24px; }
+  .review-author { display: flex; align-items: center; gap: 14px; }
+  .review-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+  .review-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.9rem; }
+  .review-since { font-size: 0.75rem; color: var(--muted); }
+  .review-badge { margin-left: auto; background: rgba(232,166,23,0.1); border: 1px solid rgba(232,166,23,0.3); border-radius: 20px; padding: 3px 10px; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--gold); }
+
+  /* CTA */
+  #cta {
+    background: linear-gradient(135deg, #0f0d08 0%, #100c00 50%, #080806 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  #cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,166,23,0.07) 0%, transparent 70%);
+  }
+  .cta-tag { justify-content: center; }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    line-height: 0.92;
+    margin-bottom: 28px;
+  }
+  .cta-title .accent { color: var(--gold); }
+  .cta-sub { color: var(--muted); max-width: 520px; margin: 0 auto 48px; line-height: 1.7; }
+  .cta-actions { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+  .cta-address {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+  .cta-address span { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 60px 5% 36px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--white); }
+  .footer-tagline { color: var(--muted); font-size: 0.82rem; margin-top: 8px; max-width: 280px; line-height: 1.6; }
+  .footer-links h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
+  .footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .footer-rating .stars-sm { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; }
+
+  /* KEYFRAMES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    #why { grid-template-columns: 1fr; }
+    .why-visual { height: 360px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .process-step:nth-child(2) { border-right: none; }
+    .process-step:nth-child(3) { border-top: 1px solid var(--border); }
+    .reviews-track { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    .hero-badge { display: none; }
+    .hero-stats { gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Active state for links */
+  .active-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s infinite;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">A Future <span>Digital</span></a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#cta" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-tag"><span class="active-dot"></span>Hisar, Haryana · Est. 2024</div>
+
+  <h1 class="hero-headline">
+    GROW<br>
+    <span class="stroke">YOUR</span><br>
+    <span class="accent">BRAND.</span>
+  </h1>
+
+  <p class="hero-sub">Digital marketing expertise in SEO, SMO, SEM, PPC, content marketing, and web design — built for businesses that want results, not excuses.</p>
+
+  <div class="hero-actions">
+    <a href="#cta" class="btn-primary">Start Your Growth</a>
+    <a href="#services" class="btn-outline">Our Services</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">5.0</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div>
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+    <div>
+      <div class="stat-num">5</div>
+      <div class="stat-label">Core Services</div>
+    </div>
+  </div>
+
+  <!-- Rotating Badge -->
+  <div class="hero-badge">
+    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="circle-text" d="M 80,80 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"/>
+      </defs>
+      <circle cx="80" cy="80" r="72" fill="none" stroke="rgba(232,166,23,0.15)" stroke-width="1"/>
+      <circle cx="80" cy="80" r="58" fill="none" stroke="rgba(232,166,23,0.08)" stroke-width="1"/>
+      <text font-family="'Bebas Neue', sans-serif" font-size="11" fill="rgba(232,166,23,0.6)" letter-spacing="4">
+        <textPath href="#circle-text">DIGITAL MARKETING · SEO · SMO · PPC · WEB DESIGN ·</textPath>
+      </text>
+      <text x="80" y="76" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="22" fill="#e8a617">5.0</text>
+      <text x="80" y="92" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" fill="rgba(232,166,23,0.6)">RATED</text>
+    </svg>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>SEO OPTIMIZATION</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>SOCIAL MEDIA MARKETING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>PAY-PER-CLICK</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>CONTENT MARKETING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>WEB DESIGN</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>VIDEO EDITING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>GOOGLE MY BUSINESS</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>BRAND STRATEGY</span><span class="dot"></span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"><span>SEO OPTIMIZATION</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>SOCIAL MEDIA MARKETING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>PAY-PER-CLICK</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>CONTENT MARKETING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>WEB DESIGN</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>VIDEO EDITING</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>GOOGLE MY BUSINESS</span><span class="dot"></span></div>
+    <div class="marquee-item"><span>BRAND STRATEGY</span><span class="dot"></span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">OUR <span class="gold">SERVICES</span></h2>
+    </div>
+    <p class="services-desc">Five powerful digital marketing disciplines, one focused team — delivering measurable growth for your business.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">🔍</div>
+      <h3 class="service-name">Search Engine Optimization</h3>
+      <p class="service-desc">Dominate Google search results with proven on-page and off-page SEO strategies tailored to your business and local market.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <div class="service-icon">📱</div>
+      <h3 class="service-name">Social Media Optimization</h3>
+      <p class="service-desc">Build a powerful social presence across platforms. We optimize your profiles and content strategy to grow your organic reach.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <div class="service-icon">📣</div>
+      <h3 class="service-name">Social Media Marketing</h3>
+      <p class="service-desc">Engage your target audience with compelling campaigns on Instagram, Facebook, and LinkedIn that convert followers into customers.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-icon">🎯</div>
+      <h3 class="service-name">Pay-Per-Click Advertising</h3>
+      <p class="service-desc">Maximize ROI with precisely targeted Google Ads and Meta Ads campaigns. Every rupee spent is tracked and optimized for results.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <div class="service-icon">💻</div>
+      <h3 class="service-name">Web Design & Development</h3>
+      <p class="service-desc">Beautiful, fast, and conversion-focused websites that represent your brand perfectly and turn visitors into paying clients.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card reveal" style="background: rgba(232,166,23,0.03);">
+      <div class="service-num">+</div>
+      <div class="service-icon">🎬</div>
+      <h3 class="service-name">Video Editing & Content</h3>
+      <p class="service-desc">Professional video editing, reels, and content creation that captures attention and drives engagement across all platforms.</p>
+      <a href="#cta" class="service-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" style="padding: 100px 5%;">
+  <div class="why-visual reveal">
+    <div class="why-box why-box-main">
+      <div class="rating-big">5.0</div>
+      <div>
+        <div class="rating-label">Google Rating</div>
+        <div class="stars">★★★★★</div>
+        <div class="review-count">Based on 8 verified reviews</div>
+      </div>
+    </div>
+    <div class="why-box why-box-sm1">
+      <div class="mini-stat-num">100%</div>
+      <div class="mini-stat-label">Client Satisfaction</div>
+    </div>
+    <div class="why-box why-box-sm2">
+      <div class="mini-stat-num">GMB</div>
+      <div class="mini-stat-label">Specialist Agency</div>
+    </div>
+  </div>
+
+  <div class="why-content reveal">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title">RESULTS THAT<br><span class="gold">MATTER</span></h2>
+    <p style="color: var(--muted); margin-top: 20px; line-height: 1.75; font-size: 0.95rem;">We're a passionate team based in Hisar, Haryana — committed to helping local and national businesses grow their digital footprint with real, measurable results.</p>
+
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-icon">📍</div>
+        <div>
+          <div class="why-item-title">Local Expertise, National Reach</div>
+          <p class="why-item-desc">Based in Siswal, Hisar — we understand the Haryana market deeply while delivering strategies that scale nationwide.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📊</div>
+        <div>
+          <div class="why-item-title">Data-Driven Approach</div>
+          <p class="why-item-desc">Every campaign decision is backed by analytics. We track, measure, and optimize for maximum performance and ROI.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⭐</div>
+        <div>
+          <div class="why-item-title">Google My Business Specialists</div>
+          <p class="why-item-desc">We help businesses dominate local search. Clients love our GMB optimization services — rated 5 stars consistently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal">
+    <div class="section-tag">How We Work</div>
+    <h2 class="section-title">OUR <span class="gold">PROCESS</span></h2>
+  </div>
+  <div class="process-grid reveal">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Discover & Audit</h3>
+      <p class="step-desc">We analyze your current digital presence, competitors, and market opportunities to build a clear picture of where you stand.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Strategy & Plan</h3>
+      <p class="step-desc">A custom roadmap is crafted based on your goals, budget, and target audience — no generic templates, only tailored plans.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Execute & Launch</h3>
+      <p class="step-desc">Our team executes campaigns across SEO, social, and paid channels with precision timing and creative excellence.</p>
+      <div class="step-arrow">→</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Track & Optimize</h3>
+      <p class="step-desc">We continuously monitor performance, report transparently, and refine strategies to keep results improving month after month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header reveal">
+    <div class="section-tag">Client Reviews</div>
+    <h2 class="section-title">WHAT CLIENTS <span class="gold">SAY</span></h2>
+  </div>
+  <div class="reviews-track reveal">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Highly recommend them for anyone looking to improve their social media presence. The team is professional, responsive, and delivers real results."</p>
+      <div class="review-author">
+        <div class="review-avatar">AK</div>
+        <div>
+          <div class="review-name">Amit Kumar</div>
+          <div class="review-since">Google Review · 2024</div>
+        </div>
+        <div class="review-badge">Verified</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I highly appreciate and recommend their Google My Business services. Our local visibility increased dramatically within just a few months."</p>
+      <div class="review-author">
+        <div class="review-avatar">UV</div>
+        <div>
+          <div class="review-name">Ugarsen Verma</div>
+          <div class="review-since">Google Review · 6 months ago</div>
+        </div>
+        <div class="review-badge">Verified</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best digital marketing agency in Hisar. They handled our SEO and PPC campaigns brilliantly — our website traffic doubled in 90 days."</p>
+      <div class="review-author">
+        <div class="review-avatar">RS</div>
+        <div>
+          <div class="review-name">Rajesh Sharma</div>
+          <div class="review-since">Google Review · 2025</div>
+        </div>
+        <div class="review-badge">Verified</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 50px; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.1em;">
+    <span style="color: var(--gold);">★★★★★</span> &nbsp; 5.0 out of 5 &nbsp;·&nbsp; 8 Reviews on Google
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-tag cta-tag reveal"><span>Ready to Grow?</span></div>
+  <h2 class="cta-title reveal">LET'S BUILD YOUR<br><span class="accent">DIGITAL FUTURE</span></h2>
+  <p class="cta-sub reveal">Whether you need SEO, social media marketing, PPC, or a new website — we're ready to make it happen. Let's talk about your goals.</p>
+  <div class="cta-actions reveal">
+    <a href="https://maps.google.com/?q=A+Future+Digital+Marketing+Company+Hisar" class="btn-primary" target="_blank">Find Us on Google</a>
+    <a href="mailto:info@afuturedigital.com" class="btn-outline">Send Enquiry</a>
+  </div>
+  <div class="cta-address reveal">
+    📍 H No 113, Block 4, near Dadai Gauri Mandir, Siswal, <span>Hisar, Haryana 125052</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="footer-logo">A Future <span>Digital</span></a>
+      <p class="footer-tagline">Digital marketing with expertise in SEO, SMO, PPC, content marketing, and video editing — helping businesses grow.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">SEO Optimization</a></li>
+        <li><a href="#services">Social Media Marketing</a></li>
+        <li><a href="#services">PPC Advertising</a></li>
+        <li><a href="#services">Web Design</a></li>
+        <li><a href="#services">Video Editing</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#why">About Us</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#reviews">Client Reviews</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Location</h4>
+      <ul>
+        <li><a href="#">Siswal, Hisar</a></li>
+        <li><a href="#">Haryana 125052</a></li>
+        <li style="margin-top:12px;"><a href="#" style="color: var(--gold);">Open · Closes 2 AM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 A Future Digital Marketing Company. All rights reserved. · Hisar, Haryana</div>
+    <div class="footer-rating">
+      <span class="stars-sm">★★★★★</span>
+      5.0 · 8 Reviews on Google
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.transform = `translate(${rx - 20}px, ${ry - 20}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .service-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '60px';
+      ring.style.height = '60px';
+      ring.style.borderColor = 'rgba(232,166,23,0.6)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '40px';
+      ring.style.height = '40px';
+      ring.style.borderColor = 'var(--gold)';
+    });
+  });
+
+  // Scroll Reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
