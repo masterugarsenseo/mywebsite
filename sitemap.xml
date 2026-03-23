@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="
+          http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ================================================ -->
+  <!-- Sitemap — A Future Digital Marketing Company     -->
+  <!-- Website : https://masterugarsenseo.github.io/mywebsite/ -->
+  <!-- Updated : March 2026                            -->
+  <!-- ================================================ -->
+
+  <!-- MAIN PAGE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://masterugarsenseo.github.io/mywebsite/assets/images/hero-bg.jpg</image:loc>
+      <image:title>A Future Digital Marketing Company - Hisar, Haryana</image:title>
+      <image:caption>Best Digital Marketing Agency in Hisar, Haryana</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SERVICES SECTION -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#services</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SEO SERVICE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#seo</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SMO SERVICE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#smo</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SMM SERVICE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#smm</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- PPC SERVICE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#ppc</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- WEB DESIGN SERVICE -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#webdesign</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- WHY US / ABOUT SECTION -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#why</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PROCESS SECTION -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#process</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- REVIEWS SECTION -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#reviews</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CONTACT / CTA SECTION -->
+  <url>
+    <loc>https://masterugarsenseo.github.io/mywebsite/#cta</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
